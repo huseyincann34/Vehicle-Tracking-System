@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+</head>
+
+<body>
+    <div>
+    <div id="map"></div>
+    <div id="saat" class="saat">
+        <input id="date" type="datetime-local" name="bdaytime" class="tarih">
+        <div class="arac">
+            <button id="datagetir" value="Submit" class="buton">1.Araç</button>
+            <button id="datagetir2" value="Submit" class="buton">2.Araç</button>
+          
+        </div>    
+        <button id="temizle" value="Temizle" class="buton3">Temizle</button>
+        <button id="idler" value="Submit" class="buton2" >Araç id'leri</button>
+        <button id="tarih" value="Submit" class="buton2" >Son Giriş</button>
+    </div>
+    <div>
+        
+    </div>
+</div>
+   
+</body>
+
+
+
+<script src="index.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script> 
+    $(document).ready(function () {
+        $("#datagetir").click(function () {
+          
+            var date = $('#date').val()
+            $.ajax({
+                url: "/PostEt1",
+                type: "POST",
+                data: {
+                    bdaytime: date
+                },
+                success: function (response) {
+                    for (let data of response) {
+                        L.marker([data.latitude, data.longitude]).addTo(map).bindPopup("Car Id: " + data.id + " Date: " + data.date).openPopup()
+                  }
+                }
+            })
+
+        })
+    })
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#datagetir2").click(function () {
+            var date2 = $('#date').val()
+            $.ajax({
+                url: "/PostEt2",
+                type: "POST",
+                data: {
+                    bdaytime: date2
+                },
+                success: function (response) {
+                    for (let data of response) {
+                        L.marker([data.latitude, data.longitude]).addTo(map).bindPopup("Car Id: " + data.id + " Date: " + data.date).openPopup()
+                    }
+                }
+            })
+        })
+    })
+</script>
+<script>
+ $("#temizle").click(function () {
+            $(".leaflet-marker-pane").empty();
+            $(".leaflet-popup-pane").empty();
+ })
+</script>
+
+<script>
+ $(document).ready(function () {
+        $("#idler").click(function () {         
+            $.ajax({
+                url: "/PostEt3",
+                type: "POST",
+                success: function (response) {
+                   alert(response)
+                }
+            })
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+           $("#tarih").click(function () {         
+               $.ajax({
+                   url: "/PostEt4",
+                   type: "POST",
+                   success: function (response) {
+                      alert(response)
+                   }
+               })
+           })
+       })
+   </script>
+
+</html>

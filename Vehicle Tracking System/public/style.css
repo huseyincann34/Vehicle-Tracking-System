@@ -1,0 +1,148 @@
+body{
+    margin :0;
+    padding: 0;
+    font-family: sans-serif;
+    background:url(foto2.jpg) center ;
+
+}
+.box{
+width: 300px;
+padding:70px;
+position : absolute;
+top:50%;
+Left: 60%;
+transform: translate(-50%,-50% );
+/* background: #27ae60;  */
+text-align: center;
+border: 4px;
+color:white;
+border-left-style: solid;
+border-left-color: aliceblue;
+float: right;
+}
+.box h1{
+    color:white;
+    text-transform: uppercase;
+    font-weight: 1500;
+    font-size: 36px;
+    }
+.box input[type="text"],.box input[type="password"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #fbcb43;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    font-size: medium;
+
+    color:white;
+    border-radius:24px;
+    transition:0.25s;
+}
+
+.box input[type="text"]:focus,.box input[type="password"]:focus{
+    width: 260px;
+    border-color: white;
+    color: white;
+ }
+ .box input[ type="submit"]{
+border:0;
+background: none;
+display: block;
+margin: 20px auto;
+text-align:center;
+border: 2px solid #fbcb43;
+padding: 14px 30px;
+outline : none;
+color:white;
+border-radius: 24px;
+transition: 0.25s;
+cursor: pointers;
+font-size: medium;
+}
+
+.box input [type="submit"]:hover{
+background: #27ae60;
+}
+
+.soldiv{
+width: 400px;
+height: 300px;
+top:45%;
+Left:30%;
+padding-top: 90px;
+position : absolute;
+float: left;
+transform: translate(-50%,-50% );
+/* background:url(back.jpg) center ; */
+text-align: center;
+border: 8px;
+border-radius: 30px;
+border-color: antiquewhite;
+
+}
+#map{
+    position:fixed;
+    float: left;
+    top:0;
+    left:0;
+    width: 80%;
+    height: 100%;
+    background-color: darkgray;
+    }
+
+#saat{        
+        float: right;
+        top:0;
+        left:0;
+        width: 20%;
+        height: 275px;
+       /* background-color: rgb(189, 24, 24);  */
+       background-color: gray;
+    }
+
+.arac{
+        margin-top: 30px;
+        margin-left:70px;
+        margin-bottom: 40px;
+        flex-direction: column;
+
+    }
+.buton{
+    width: 80px;
+    height: 40px;
+    font-size: large;
+    font-style: oblique;
+    float: center;
+    border-radius: 8px;
+}
+.tarih{
+    width: 230px;
+    height: 40px;
+    margin-top: 30px;
+    margin-left: 50px;
+    font-size: large;
+    border-radius: 5px;
+}
+.buton2{
+    width: 102px;
+    height: 40px;
+    font-size: large;
+    font-style: oblique;
+    float: center;
+    border-radius: 8px;
+}
+.buton3{
+    width: 80px;
+    height: 40px;
+    font-size: large;
+    font-style: oblique;
+    float: center;
+    border-radius: 8px;
+    margin-left: 6px;
+}
+
+  
